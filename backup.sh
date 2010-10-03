@@ -1,5 +1,8 @@
 #!/bin/sh
 
+BASE_DIR=~/backup
+
+
 # iTunes
 # iCal
 # Address Book
