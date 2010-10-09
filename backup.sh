@@ -102,13 +102,13 @@ copyMatchingFiles Library/Preferences "com.apple.iTunes*"
 # copy music directory
 createDir $TARGET_DIR/Music
 createDir $TARGET_DIR/Music/iTunes
-#copy Music/iTunes
+copy Music/iTunes
 ########################################
 
 ########################################
 # iPhoto
 createDir $TARGET_DIR/Pictures
-#copy "Pictures/iPhoto Library"
+copy "Pictures/iPhoto Library"
 copyMatchingFiles Library/Preferences "com.apple.iPhoto*"
 ########################################
 
@@ -127,7 +127,7 @@ copy Library/Preferences/com.apple.keychainaccess.plist
 ########################################
 # Mail
 copyMatchingFiles Library/Preferences "com.apple.mail*"
-#copy Library/Mail
+copy Library/Mail
 ########################################
 
 ########################################
