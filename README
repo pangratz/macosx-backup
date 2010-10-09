@@ -1,1 +1,26 @@
 This is a script which backups all files for defined applications.
+
+Currently the following applications are supported:
+
+* Address Book
+* Dashboard
+* Echofon
+* Firefox
+* Google Chrome
+* iCal
+* iTunes
+* iPhoto
+* iWork
+* Keychain
+* Mail
+* QuietRead
+* Safari
+* ShakesPeer
+* Skype
+* Stickies
+* TextMate
+* Things
+* Transmission
+* Vienna
+* VLC
+
