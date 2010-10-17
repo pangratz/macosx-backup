@@ -120,7 +120,7 @@ copyMatchingFiles Library/Preferences "com.apple.iWork*"
 
 ########################################
 # Keychain
-copy Library/Keychain
+copy Library/Keychains
 copy Library/Preferences/com.apple.keychainaccess.plist
 ########################################
 
