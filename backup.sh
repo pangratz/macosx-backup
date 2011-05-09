@@ -69,7 +69,6 @@ copy "Library/Application Support/ShakesPeer"
 
 ########################################
 # TextMate
-createDir "$TARGET_DIR/Library/Application Support/TextMate"
 copy Library/Preferences/com.macromates.textmate.plist
 copy "Library/Application Support/TextMate"
 ########################################
@@ -84,14 +83,9 @@ copy Library/Preferences/com.culturedcode.things.plist
 
 ########################################
 # Cyberduck
-createDir "$TARGET_DIR/Library/Application Support/Cyberduck"
-createDir "$TARGET_DIR/Library/Application Support/Cyberduck/Sessions"
-createDir "$TARGET_DIR/Library/Application Support/Cyberduck/History"
-createDir "$TARGET_DIR/Library/Application Support/Cyberduck/Bookmarks"
 copy "Library/Application Support/Cyberduck"
 
 # Sparrow
-createDir "$TARGET_DIR/Library/Application Support/Sparrow"
 copy "Library/Application Support/Sparrow"
 copy Library/Preferences/com.sparrowmailapp.sparrow.plist
 copy Library/Caches/com.sparrowmailapp.sparrow
