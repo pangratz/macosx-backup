@@ -5,22 +5,28 @@ TARGET_DIR=~/backup
 
 function createDir
 {
-	if [ ! -d "$1" ]; then
-		mkdir "$1"
+	if [ ! -e "$1" ]; then
+		mkdir -p "$1"
 	fi
 }
 
 function copy
 {
-	echo "copying $1"
-	fileName="$BASE_DIR/$1"
-	if [ -d "$fileName" ]; then
-		cp -r "$BASE_DIR/$1/" "$TARGET_DIR/$1"
-	fi
+	src="$BASE_DIR/$1"
+	dest="$TARGET_DIR/$1"
+	destDirName=`dirname "$dest"`
 	
-	if [ -f "$fileName" ]; then
+	echo "Copying files in dir $src to dir $dest"
+	
+	if [ -d "$src" ]; then
+		createDir "$dest"
+		cp -r "$BASE_DIR/$1/" "$TARGET_DIR/$1"
+	elif [ -f "$src" ]; then
+		createDir "$destDirName"
 		cp "$BASE_DIR/$1" "$TARGET_DIR/$1"
-	fi	
+	else
+		echo "Source directory $src does not exist"
+	fi
 }
 
 function copyMatchingFiles
@@ -28,24 +34,25 @@ function copyMatchingFiles
 	echo "copying files in dir $1 starting with $2"
 	find "$BASE_DIR/$1" -maxdepth 1 -name "$2" | while read FILENAME;
 	do
+		createDir "$TARGET_DIR/$1"
 		cp "$FILENAME" "$TARGET_DIR/$1/";
 	done
 }
 
-# create target dir if not yet available
-createDir $TARGET_DIR
-createDir $TARGET_DIR/Library
-createDir $TARGET_DIR/Music
-
-
 ########################################
 # Address Book
-createDir $TARGET_DIR/Library
-createDir $TARGET_DIR/Library/Preferences
 copyMatchingFiles Library/Preferences "com.apple.AddressBook*"
-
-createDir "$TARGET_DIR/Library/Application Support"
 copy "Library/Application Support/AddressBook"
+########################################
+
+########################################
+# Bibdesk
+copy "Library/Application Support/BibDesk"
+########################################
+
+########################################
+# Cyberduck
+copy "Library/Application Support/Cyberduck"
 ########################################
 
 ########################################
@@ -54,7 +61,6 @@ copy Library/Preferences/com.apple.dashboard.client.plist
 copy Library/Preferences/com.apple.dashboard.plist
 copyMatchingFiles Library/Preferences "widget-com*"
 
-createDir $TARGET_DIR/Library/Widgets
 copy Library/Widgets
 ########################################
 
@@ -66,7 +72,6 @@ copy "Library/Application Support/Echofon"
 
 ########################################
 # Firefox
-createDir "$TARGET_DIR/Library/Application Support"
 copy "Library/Application Support/Firefox"
 copy Library/Preferences/org.mozilla.firefox.plist
 ########################################
@@ -74,18 +79,13 @@ copy Library/Preferences/org.mozilla.firefox.plist
 ########################################
 # Google Chrome
 copy Library/Preferences/com.google.Chrome.plist
-createDir "$TARGET_DIR/Library/Application Support/Google"
-createDir "$TARGET_DIR/Library/Application Support/Google/Chrome"
 copy "Library/Application Support/Google/Chrome"
 ########################################
 
 ########################################
 # iCal
-createDir $TARGET_DIR/Library
-createDir $TARGET_DIR/Library/Calendars
 copy Library/Calendars
 
-createDir $TARGET_DIR/Library/Preferences
 copy Library/Preferences/com.apple.iCal.helper.plist
 copy Library/Preferences/com.apple.iCal.plist
 ########################################
@@ -93,22 +93,12 @@ copy Library/Preferences/com.apple.iCal.plist
 ########################################
 # iTunes
 # copy Library iTunes dir
-createDir $TARGET_DIR/Library/iTunes
 copy Library/iTunes
-
-createDir $TARGET_DIR/Library/Preferences
 copyMatchingFiles Library/Preferences "com.apple.iTunes*"
-
-# copy music directory
-createDir $TARGET_DIR/Music
-createDir $TARGET_DIR/Music/iTunes
-copy Music/iTunes
 ########################################
 
 ########################################
 # iPhoto
-createDir $TARGET_DIR/Pictures
-copy "Pictures/iPhoto Library"
 copyMatchingFiles Library/Preferences "com.apple.iPhoto*"
 ########################################
 
@@ -155,6 +145,13 @@ copy "Library/Application Support/Skype"
 ########################################
 
 ########################################
+# Sparrow
+copy "Library/Application Support/Sparrow"
+copy Library/Preferences/com.sparrowmailapp.sparrow.plist
+copy Library/Caches/com.sparrowmailapp.sparrow
+########################################
+
+########################################
 # Stickies
 copy Library/StickiesDatabase
 copy Library/Preferences/com.apple.Stickies.plist
@@ -163,12 +160,11 @@ copy Library/Preferences/com.apple.Stickies.plist
 ########################################
 # TextMate
 copy Library/Preferences/com.macromates.textmate.plist
+copy "Library/Application Support/TextMate"
 ########################################
 
 ########################################
 # Things
-createDir "$TARGET_DIR/Library/Application Support/Cultured Code"
-createDir "$TARGET_DIR/Library/Application Support/Cultured Code/Things"
 copy "Library/Application Support/Cultured Code/Things"
 copy Library/Preferences/com.culturedcode.things.plist
 ########################################
@@ -181,11 +177,8 @@ copy "Library/Application Support/Transmission"
 
 ########################################
 # Vienna
-createDir $TARGET_DIR/Library
-createDir "$TARGET_DIR/Library/Application Support"
 copy "Library/Application Support/Vienna"
 
-createDir $TARGET_DIR/Library/Preferences
 copy Library/Preferences/uk.co.opencommunity.vienna2.plist
 ########################################
 
@@ -193,4 +186,26 @@ copy Library/Preferences/uk.co.opencommunity.vienna2.plist
 # VLC
 copy "Library/Application Support/org.videolan.vlc"
 copyMatchingFiles Library/Preferences "org.videolan.vlc*"
+########################################
+
+########################################
+# Wallet
+copy "Library/Application Support/Wallet"
+########################################
+
+########################################
+# .ssh
+copy .ssh
+########################################
+
+########################################
+# User Data
+copy Books
+copy Code
+copy Documents
+copy Dropbox
+copy Music
+copy Pictures
+copy Sites
+copy University
 ########################################
