@@ -197,18 +197,3 @@ copy Pictures
 copy Sites
 copy University
 ########################################
-# Cyberduck
-copy "Library/Application Support/Cyberduck"
-########################################
-
-########################################
-# Sparrow
-copy "Library/Application Support/Sparrow"
-copy Library/Preferences/com.sparrowmailapp.sparrow.plist
-copy Library/Caches/com.sparrowmailapp.sparrow
-########################################
-
-########################################
-# .ssh
-copy .ssh
-########################################
