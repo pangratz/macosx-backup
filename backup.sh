@@ -121,18 +121,6 @@ copy Library/Mail
 ########################################
 
 ########################################
-# QuietRead
-copy Library/Preferences/com.bambooapps.Quiet-Read.plist
-copy "Library/Application Support/Quiet Read"
-########################################
-
-########################################
-# Safari
-copy  Library/Safari
-copyMatchingFiles Library/Safari "com.apple.Safari*"
-########################################
-
-########################################
 # ShakesPeer
 copy Library/Preferences/se.hedenfalk.shakespeer.plist
 copy "Library/Application Support/ShakesPeer"
@@ -208,4 +196,19 @@ copy Music
 copy Pictures
 copy Sites
 copy University
+########################################
+# Cyberduck
+copy "Library/Application Support/Cyberduck"
+########################################
+
+########################################
+# Sparrow
+copy "Library/Application Support/Sparrow"
+copy Library/Preferences/com.sparrowmailapp.sparrow.plist
+copy Library/Caches/com.sparrowmailapp.sparrow
+########################################
+
+########################################
+# .ssh
+copy .ssh
 ########################################
