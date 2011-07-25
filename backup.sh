@@ -102,6 +102,7 @@ copy Music/iTunes
 ########################################
 # iPhoto
 copyMatchingFiles Library/Preferences "com.apple.iPhoto*"
+copy "Pictures/iPhoto Library"
 ########################################
 
 ########################################
@@ -120,6 +121,12 @@ copy Library/Preferences/com.apple.keychainaccess.plist
 # Mail
 copyMatchingFiles Library/Preferences "com.apple.mail*"
 copy Library/Mail
+########################################
+
+########################################
+# Safari
+copy  Library/Safari
+copyMatchingFiles Library/Safari "com.apple.Safari*"
 ########################################
 
 ########################################
@@ -186,16 +193,4 @@ copy "Library/Application Support/Wallet"
 ########################################
 # .ssh
 copy .ssh
-########################################
-
-########################################
-# User Data
-copy Books
-copy Code
-copy Documents
-copy Dropbox
-copy Music
-copy Pictures
-copy Sites
-copy University
 ########################################
