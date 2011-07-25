@@ -3,6 +3,8 @@ This is a script which backups all files for defined applications.
 Currently the following applications are supported:
 
 * Address Book
+* BibDesk
+* Cyberduck
 * Dashboard
 * Echofon
 * Firefox
@@ -17,10 +19,15 @@ Currently the following applications are supported:
 * Safari
 * ShakesPeer
 * Skype
+* Sparrow
 * Stickies
 * TextMate
 * Things
 * Transmission
 * Vienna
 * VLC
+* Wallet
 
+Other user data:
+* .ssh
+* Other data in the User directory
