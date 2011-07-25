@@ -189,3 +189,14 @@ copyMatchingFiles Library/Preferences "org.videolan.vlc*"
 # .ssh
 copy .ssh
 ########################################
+
+########################################
+# Maven
+copy .m2/settings-security.xml
+copy .m2/settings.xml
+########################################
+
+########################################
+# Git
+copy .gitconfig
+########################################
