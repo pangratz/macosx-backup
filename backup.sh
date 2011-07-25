@@ -200,3 +200,10 @@ copy .m2/settings.xml
 # Git
 copy .gitconfig
 ########################################
+
+########################################
+# User Data
+copy Documents
+copy Downloads
+copy Dropbox
+########################################
