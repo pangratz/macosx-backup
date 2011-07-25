@@ -95,6 +95,8 @@ copy Library/Preferences/com.apple.iCal.plist
 # copy Library iTunes dir
 copy Library/iTunes
 copyMatchingFiles Library/Preferences "com.apple.iTunes*"
+
+copy Music/iTunes
 ########################################
 
 ########################################
